@@ -1,7 +1,7 @@
 <?php
 
 spl_autoload_register(function ($class) {
-    require 'classe/' . $class . '.php';
+    require 'classes/' . $class . '.php';
 });
 
 $player1 = new Warrior('Cloup');
@@ -27,6 +27,6 @@ $player2 = new Magician('Vivi');
         </div>
     <?php endwhile ?>
     <p><?= $result ?></p>
-    
+
 </body>
 </html>

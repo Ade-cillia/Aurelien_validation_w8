@@ -1,8 +1,8 @@
 <?php
 
-class warrior extends Character
+class Warrior extends Character
 {
-    public $critic = false;
+    private $critic = false;
 
     public function turn($target) {
         $rand = rand(1, 10);
@@ -11,27 +11,25 @@ class warrior extends Character
         } else {
             $status = $this->attack($target);
         }
-        return $status
+        return $status;
     }
 
     public function attack($target) {
         if ($this->critic) {
             $rand = rand(15, 30)/10;
             $criticDamage = $this->damage * $rand;
-            $target-setHealthPoints($criticDamage);
+            $target->setHealthPoints($criticDamage);
             $this->critic = false;
         } else {
             $target->setHealthPoints($this->damage);
         }
-        $status = "$this->name donne un coup d'épée à $target->name ! Il reste $target->healthPoints points de vie à $target->name !";
+        $status = "$this->name donne un coup d'épée à $target->name ! Il reste ".$target->getHealthPoints()." points de vie à $target->name !";
         return $status;
     }
 
     public function boost() {
         $this->critic = true;
-        $status = "$this->name se prépart à donner un gros coup !";
+        $status = "$this->name se prépare à donner un gros coup !";
         return $status;
     }
 }
-
-
