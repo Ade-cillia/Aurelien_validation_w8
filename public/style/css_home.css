@@ -1,5 +1,5 @@
 .round{
-    width: 40%;
+    width: 50%;
     margin: 20px;
     display: none;
     flex-wrap: wrap;
@@ -11,19 +11,7 @@
 .round p{
     width: 100%;
 }
-html{
-    height: 100%;
-    scroll-behavior: smooth;
-}
-.round:nth-child(even) .name{
-    color: darkred;
-    font-weight: bold;
-}
-.round:nth-child(odd) .name{
-    color: darkgreen;
-    font-weight: bold;
-}
-main{
+body{
     width: 100%;
     width: 100%;
     display: flex;

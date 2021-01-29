@@ -14,11 +14,11 @@ class Archer extends Character
         $rand = rand(1, 10);
         if ($this->quiver == 0) {
             $status = $this->dagger($target);
-        } else if ($rand >= 5 || $this->focus || $this->multipleArrows) {
+        }else if ($rand >= 5 || $this->focus || $this->multipleArrows) {
             $status = $this->goldenBow($target);
-        } else if ($rand >= 2 && $this->quiver >= 3) {
+        }else if ($rand >= 2 && $this->quiver >= 3) {
             $status = $this->loadMultipleArrows();
-        }else if($this->quiver >= 1){
+        }else if ($this->quiver >= 1){
             $status = $this->focusTarget();
         }else {
             $status = $this->goldenBow($target);
@@ -35,7 +35,7 @@ class Archer extends Character
             $status = "$this->name à trouvé un point faible chez son adversaire ! <br>";
         }
         if ($this->multipleArrows) {
-            $damage *= 3;
+            $damage *= 3;   //multipleArrows tire 3 flèches car 2 est inutile
             $this->multipleArrows = false;
             $this->quiver -= 3;
             $target->setHealthPoints($damage);
