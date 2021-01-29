@@ -42,9 +42,9 @@ class Magician extends Character
         return $status;
     }
 
-    public function setHealthPoints($damage) {
+    public function takeDamage($damage) {
         if (!$this->shield) {
-            $this->healthPoints -= round($damage);
+            $this->setHealthPoints($damage);
         }
         $this->shield = false;
         $this->isAlive();
