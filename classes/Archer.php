@@ -7,7 +7,7 @@ class Archer extends Character
     private $quiver = 5;
     public function __construct($name){
         parent::__construct($name);
-        $this->damage = 11;
+        $this->damage = 7;
     }
 
     public function turn($target) {
@@ -38,11 +38,11 @@ class Archer extends Character
             $damage *= 3;
             $this->multipleArrows = false;
             $this->quiver -= 3;
-            $target->setHealthPoints($this->damage);
+            $target->setHealthPoints($damage);
             $status = $status."$this->name tire trois flèches en mêmes temps !!! Il reste ".$target->getHealthPoints()." points de vie à $target->name ! ";
         }else{
             $this->quiver -= 1;
-            $target->setHealthPoints($this->damage);
+            $target->setHealthPoints($damage);
             $status = $status."$this->name tire une flèche sur son adversaire ! Il reste ".$target->getHealthPoints()." points de vie à $target->name !";
         }
 
@@ -60,7 +60,7 @@ class Archer extends Character
     }
     public function dagger($target){
         $target->setHealthPoints($this->damage);
-        $status = "$this->name n'a plus de flèches, il court vers son ennemie et lui enfonce sa dague";
+        $status = "$this->name n'a plus de flèches, il court vers son ennemie et lui enfonce sa dague !! Il reste ".$target->getHealthPoints()." points de vie à $target->name !";
         return $status;
     }
 
